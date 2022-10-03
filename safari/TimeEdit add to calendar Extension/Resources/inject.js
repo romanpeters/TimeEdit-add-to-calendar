@@ -10,6 +10,13 @@ function max_page_size() {
     items[items.length-1].click();
 }
 
+function ensure_correct_page() {
+    // ensures the page is https://exam.timeedit.com/ or https://exam.timeedit.com/home
+    if (window.location.href != "https://exam.timeedit.com/" || window.location.href != "https://exam.timeedit.com/home") {
+        window.location.href = "https://exam.timeedit.com/";
+    }
+}
+
 function download(filename, text) {
     // from https://stackoverflow.com/questions/3665115/create-a-file-in-memory-for-user-to-download-not-through-server
     var element = document.createElement('a');
@@ -25,6 +32,7 @@ function download(filename, text) {
 }
 
 function get_cal() {
+    ensure_correct_page();
     max_page_size();
     var cal = document.getElementsByClassName("ant-table-tbody")[0];
     var cal_rows = cal.getElementsByTagName("tr");
@@ -66,16 +74,19 @@ function get_cal() {
     download("cal.ics", cal_text);
 }
 
+// if domain equals https://exam.timeedit.com or https://exam.timeedit.com/home
+if (window.location.href == "https://exam.timeedit.com/" || window.location.href == "https://exam.timeedit.com/home") {
 
-// create button and add it to the page
-var button = document.createElement("button");
-button.innerHTML = "Add to calendar";
-button.onclick = function() {
-    get_cal();
+    // create button and add it to the page
+    var button = document.createElement("button");
+    button.innerHTML = "Add to calendar";
+    button.onclick = function() {
+        get_cal();
+    }
+
+    document.body.appendChild(button);
+    button.style.position = "absolute";
+    button.style.top = "90%";
+    button.style.left = "90%";
+    button.style.transform = "translate(-50%, -50%)";
 }
-
-document.body.appendChild(button);
-button.style.position = "absolute";
-button.style.top = "90%";
-button.style.left = "90%";
-button.style.transform = "translate(-50%, -50%)";
