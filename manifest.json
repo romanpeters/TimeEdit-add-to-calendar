@@ -1,0 +1,19 @@
+{
+
+  "description": "Adds your shifts to your calendar",
+  "manifest_version": 2,
+  "name": "TimeEdit add to calendar",
+  "version": "1.0",
+  "homepage_url": "https://e-surveillant.nl",
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://exam.timeedit.com/*"],
+      "js": ["get_cal.js"]
+    }
+  ]
+
+}
