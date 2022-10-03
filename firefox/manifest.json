@@ -12,7 +12,7 @@
   "content_scripts": [
     {
       "matches": ["*://exam.timeedit.com/*"],
-      "js": ["get_cal.js"]
+      "js": ["inject.js"]
     }
   ]
 
