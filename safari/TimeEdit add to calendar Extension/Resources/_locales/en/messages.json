@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "TimeEdit add to Calendar Extension",
+        "description": "TimeEdit add to Calendar"
+    },
+    "extension_description": {
+        "message": "This is the TimeEdit add to Calendar Extension.",
+        "description": "Adds a button to timeedit.com to export your schedule to an ics-file."
+    }
+}
