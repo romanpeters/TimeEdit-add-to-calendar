@@ -83,7 +83,7 @@ if (window.location.href == "https://exam.timeedit.com/" || window.location.href
 
 	// create button and add it to the page
 	var button = document.createElement("button");
-	button.innerHTML = "Add to calendar";
+	button.innerHTML = "Export calendar";
 	button.onclick = function() {
 		get_cal();
 	}
