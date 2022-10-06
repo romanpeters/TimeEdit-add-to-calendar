@@ -2,7 +2,7 @@
   "name": "TimeEdit add to Calendar",
   "action": {},
   "manifest_version": 3,
-  "version": "1.1",
+  "version": "1.2",
   "description": "Add your TimeEdit schedule to your calendar",
   "icons": {
 	  "48": "icons/border-48.png"
