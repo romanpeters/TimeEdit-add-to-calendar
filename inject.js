@@ -63,7 +63,9 @@ function get_cal() {
 		date_end = date_end.replace(/-/g, "").replace(/ /g, "T").replace(/:/g, "").replace(/\s/g, "");
 		cal_text += "DTEND:" + date_end + "00\n";
 
-		uid = date_start + "@" + campus + room;
+		uid = date_start + campus + room;
+    uid = uid.replace(/\s/g, "").replace(/[^a-zA-Z0-9]/g, "").toLowerCase();  // remove whitespace and special characters
+
 		cal_text += "UID:" + uid + "\n";
 
 		cal_text += "LOCATION:" + campus + " " + room + "\n";
