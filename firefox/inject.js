@@ -55,11 +55,12 @@ function get_cal() {
 		
 		var date_start = date + " " + work_start;
 		// format date_start from YYYY-MM-DD HH:MM to YYYYMMDDTHHMM00
-		date_start = date_start.replace(/-/g, "").replace(/ /g, "T").replace(/:/g, "");
+		date_start = date_start.replace(/-/g, "").replace(/ /g, "T").replace(/:/g, "").replace(/\s/g, "");
+
 		cal_text += "DTSTART:" + date_start + "00\n";
 
 		var date_end = date + " " + work_end;
-		date_end = date_end.replace(/-/g, "").replace(/ /g, "T").replace(/:/g, "");
+		date_end = date_end.replace(/-/g, "").replace(/ /g, "T").replace(/:/g, "").replace(/\s/g, "");
 		cal_text += "DTEND:" + date_end + "00\n";
 
 		uid = date_start + "@" + campus + room;
