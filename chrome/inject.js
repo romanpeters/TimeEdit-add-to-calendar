@@ -63,6 +63,8 @@ function get_cal() {
 		date_end = date_end.replace(/-/g, "").replace(/ /g, "T").replace(/:/g, "").replace(/\s/g, "");
 		cal_text += "DTEND:" + date_end + "00\n";
 
+    cal_text += "TZID:Europe/Amsterdam\n";
+
 		uid = date_start + campus + room;
     // remove whitespace and special chars
     uid = uid.replace(/\s/g, "").replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
@@ -83,7 +85,7 @@ if (window.location.href == "https://exam.timeedit.com/" || window.location.href
 
 	// create button and add it to the page
 	var button = document.createElement("button");
-	button.innerHTML = "Add to calendar";
+	button.innerHTML = "Export calendar";
 	button.onclick = function() {
 		get_cal();
 	}
