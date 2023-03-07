@@ -63,6 +63,8 @@ function get_cal() {
 		date_end = date_end.replace(/-/g, "").replace(/ /g, "T").replace(/:/g, "").replace(/\s/g, "");
 		cal_text += "DTEND:" + date_end + "00\n";
 
+    cal_tex += "TZID:Europe/Amsterdam\n";
+
 		uid = date_start + campus + room;
     // remove whitespace and special chars
     uid = uid.replace(/\s/g, "").replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
