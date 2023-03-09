@@ -36,6 +36,7 @@ function get_cal() {
 	max_page_size();
 	var cal = document.getElementsByClassName("ant-table-tbody")[0];
 	var cal_rows = cal.getElementsByTagName("tr");
+    var tz = "Europe/Amsterdam"
 
 	var cal_text = "BEGIN:VCALENDAR\n";
 
@@ -57,11 +58,13 @@ function get_cal() {
 		// format date_start from YYYY-MM-DD HH:MM to YYYYMMDDTHHMM00
 		date_start = date_start.replace(/-/g, "").replace(/ /g, "T").replace(/:/g, "").replace(/\s/g, "");
 
-		cal_text += "DTSTART:" + date_start + "00\n";
+		cal_text += "DTSTART;TZID="+tz+":" + date_start + "00\n";
 
 		var date_end = date + " " + work_end;
 		date_end = date_end.replace(/-/g, "").replace(/ /g, "T").replace(/:/g, "").replace(/\s/g, "");
-		cal_text += "DTEND:" + date_end + "00\n";
+		cal_text += "DTEND;TZID="+tz+":" + date_end + "00\n";
+
+    cal_text += "TZID:"+tz+"\n";
 
 		uid = date_start + campus + room;
     // remove whitespace and special chars
@@ -83,7 +86,7 @@ if (window.location.href == "https://exam.timeedit.com/" || window.location.href
 
 	// create button and add it to the page
 	var button = document.createElement("button");
-	button.innerHTML = "Add to calendar";
+	button.innerHTML = "Export calendar";
 	button.onclick = function() {
 		get_cal();
 	}
